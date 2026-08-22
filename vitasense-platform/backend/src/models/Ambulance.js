@@ -1,0 +1,3 @@
+const mongoose = require('mongoose')
+const s = new mongoose.Schema({ patientId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}, patientName:String, status:{type:String,enum:['requested','dispatched','en_route','arrived','completed'],default:'requested'}, patientLocation:{lat:Number,lng:Number,address:String}, ambulanceLocation:{lat:Number,lng:Number}, ambulanceId:{type:String,default:()=>'AMB-'+Math.floor(Math.random()*900+100)}, driverName:{type:String,default:'Rajesh Kumar'}, driverPhone:{type:String,default:'+91-98765-43210'}, estimatedArrival:Number, vitals:{heartRate:Number,spo2:Number,temperature:Number}, hospitalName:String },{timestamps:true})
+module.exports = mongoose.model('Ambulance',s)

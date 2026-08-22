@@ -1,0 +1,3 @@
+const mongoose = require('mongoose')
+const s = new mongoose.Schema({ patientId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}, doctorId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}, patientName:String, doctorName:String, date:{type:String,required:true}, time:{type:String,required:true}, reason:{type:String,default:'General Checkup'}, status:{type:String,enum:['pending','confirmed','completed','cancelled'],default:'pending'}, notes:{type:String,default:''}, vitalsAtTime:{heartRate:Number,spo2:Number,temperature:Number,healthScore:Number} },{timestamps:true})
+module.exports = mongoose.model('Appointment',s)

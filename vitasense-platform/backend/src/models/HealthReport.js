@@ -1,0 +1,3 @@
+const mongoose = require('mongoose')
+const s = new mongoose.Schema({ patientId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}, doctorId:{type:mongoose.Schema.Types.ObjectId,ref:'User'}, vitals:{heartRate:Number,spo2:Number,temperature:Number,hrv:Number,healthScore:Number}, predictions:{heartRisk:String,strokeRisk:String,stressLevel:String}, notes:String, diagnosis:String, prescription:String },{timestamps:true})
+module.exports = mongoose.model('HealthReport',s)
